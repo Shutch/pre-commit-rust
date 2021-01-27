@@ -1,3 +1,27 @@
+- id: test
+  name: test
+  description: Runs test suite.
+  entry: cargo test
+  language: system
+  args: ["--"]
+  types: [rust]
+  pass_filenames: false
+- id: coverage
+  name: coverage
+  description: Checks code coverage, ignores tests.
+  entry: cargo tarpaulin
+  language: system
+  args: ["--", "--ignore-tests"]
+  types: [rust]
+  pass_filenames: false
+- id: audit
+  name: audit
+  description: Audits dependencies for security vulnerabilities.
+  entry: cargo audit
+  language: system
+  args: ["--"]
+  types: [rust]
+  pass_filenames: false
 - id: fmt
   name: fmt
   description: Format files with cargo fmt.
@@ -20,3 +44,4 @@
   args: ["--", "-D", "warnings"]
   types: [rust]
   pass_filenames: false
+-  
